@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>all people</title>
+</head>
+<body>
+<h1>REGISTERED PEOPLE:</h1>
+
+<div th:each="eachperson: ${peopledao}">
+    <a th:href="@{/people/{id}(id=${eachperson.getId()})}" th:text="${eachperson.getFullname()}"></a>
+</div>
+
+<h2>CREATE NEW PERSON</h2>
+<a href="people/new">CREATE</a>
+
+<h1>LINK TO VIEW BOOKS</h1>
+<a href="/Books">BOOKS</a>
+</body>
+</html>

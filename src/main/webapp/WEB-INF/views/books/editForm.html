@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form th:method="PATCH" th:action="@{/Books/{id}(id=${oneBook.getId()})}" th:object="${oneBook}">
+    <label for="name">Enter name of Book</label>
+    <input type="text" th:field="*{nameofbook}" id="name"/>
+    <br>
+    <label for="nameofauthor">Enter name of author</label>
+    <input type="text" th:field="*{nameofauthor}" id="nameofauthor"/>
+    <br>
+    <label for="yearofwritten">Enter year of published</label>
+    <input type="text" th:field="*{yearofwritten}" id="yearofwritten"/>
+
+
+    <input type="submit" value="update!">
+
+</form>
+
+</body>
+</html>
