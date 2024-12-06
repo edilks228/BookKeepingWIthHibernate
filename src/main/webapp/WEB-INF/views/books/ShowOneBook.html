@@ -11,17 +11,17 @@
     <p th:text="${'id in this Bookkeeping: '+ oneBookShow.getId()}"></p>
     <br/>
 
-    <div th:if="${Person != null}" >
-        <p>THE BOOK IS OCCUPIED BY:</p>
-        <a th:href="@{/people/{id}(id=${Person.getId()})}" th:text="${Person.getFullname()}"></a>
 
+    <div th:if="${person != null}" >
+        <p>THE BOOK IS OCCUPIED BY:</p>
+        <a th:href="@{/people/{id}(id=${person.getId()})}" th:text="${person.getFullname()}"></a>
 
         <form th:action="@{/Books/{id}/makefree(id=${oneBookShow.getId()})}" method="post">
             <button type="submit" value="release">release</button>
         </form>
     </div>
 
-    <div th:if="${Person == null}">
+    <div th:if="${person == null}">
         <p>BOOK IS FREEE</p>
 
         <form th:method="PATCH" th:action="@{/Books/{id}/add(id=${oneBookShow.getId()})}">
@@ -42,6 +42,6 @@
         <input type="submit" value="DELETE BOOK">
     </form>
 
-    <a href="Books">BACK TO LIST</a>
+    <a href="/Books">BACK TO LIST</a>
 </body>
 </html>

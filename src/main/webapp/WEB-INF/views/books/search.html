@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form th:action="@{/Books/search}" method="post">
+  <input type="text" name="searchBook" placeholder="write name of book">
+  <button type="submit" >SUBMIT</button>
+</form>
+
+<div th:if="${!foundBooks.isEmpty()}" >
+
+    <div th:each="book : ${foundBooks}">
+        <a th:href="@{/Books/{id}(id=${book.getId()})}" th:text="${book.getNameofbook()}"></a>
+    </div>
+
+</div>
+
+<div th:if="${foundBooks.isEmpty()}" >
+    <h1>No books found</h1>
+</div>
+
+<a style="color: red" th:href="@{/Books}">GO BACK</a>
+
+</body>
+</html>

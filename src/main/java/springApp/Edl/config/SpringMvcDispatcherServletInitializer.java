@@ -2,10 +2,11 @@ package springApp.Edl.config;
 
 
 
-import jakarta.servlet.*;
-import jakarta.servlet.ServletException;
 import org.springframework.web.filter.HiddenHttpMethodFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletException;
 
 public class SpringMvcDispatcherServletInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
@@ -22,6 +23,7 @@ public class SpringMvcDispatcherServletInitializer extends AbstractAnnotationCon
     protected String[] getServletMappings() {
         return new String[]{"/"};
     }
+
     @Override
     public void onStartup(ServletContext aServletContext) throws ServletException {
         super.onStartup(aServletContext);

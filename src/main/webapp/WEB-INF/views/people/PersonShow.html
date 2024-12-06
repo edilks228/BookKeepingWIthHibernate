@@ -11,9 +11,9 @@
 
     <h3>BOOKS:</h3>
 
-    <div th:if="${!booksThatHeHas.isEmpty()}" >
+    <div th:if="${!booksThatHeHas.isEmpty()}">
         <div th:each="eachBook : ${booksThatHeHas}" >
-            <p th:text="${eachBook.getNameofbook()}"></p>
+            <p th:style="${eachBook.isExpired()}? 'color: red;' : 'color: green;'"  th:text="${eachBook.getNameofbook()}"></p>
             <p th:text="${eachBook.getNameofauthor()}"></p>
         </div>
     </div>

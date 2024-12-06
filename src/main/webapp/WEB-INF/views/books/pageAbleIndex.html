@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>books list</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>nameing</th>
+    </tr>
+    <div th:each="book : ${books}">
+        <a th:href="@{/Books/{id}(id=${book.getId()})}" th:text="${book.getNameofbook()}">asa</a>
+    </div>
+</table>
+
+<div>
+    <a th:href="@{/Books(page=${currentPage - 1}, size=${size})}" th:if="${currentPage > 0}">prewious</a>
+
+    <span th:text="'page ' + (${currentPage + 1}) + ' from ' + ${totalPages}"></span>
+
+    <a th:href="@{/Books(page=${currentPage + 1}, size=${size})}" th:if="${currentPage + 1 < totalPages}">next</a>
+</div>
+
+<a href="/Books/new">ADD NEW BOOK</a>
+<a href="/people">PEOPLE</a>
+</body>
+</html>
+

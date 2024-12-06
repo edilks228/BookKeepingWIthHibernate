@@ -2,19 +2,22 @@
 <html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>asas</title>
+    <title>Books Page</title>
 </head>
 <body>
 
+<a style="color:red" th:href="@{/Books/search}">SEARCH PAGE</a>
+
+
 <h1>BOOKS:</h1>
-<div th:each="book : ${oneBookjj}">
+<div th:each="book : ${BooksList}">
     <a th:href="@{/Books/{id}(id=${book.getId()})}" th:text="${book.getNameofbook()}">asa</a>
 </div>
 
-<br/>
+<h2>CREATE NEW BOOK</h2>
+<a href="books/new">CREATE</a>
 
-<a href="/Books/new">ADD NEW BOOK</a>
-<a href="/people">PEOPLE</a>
+<h1>LINK TO VIEW PEOPLE</h1>
+<a href="/people">BOOKS</a>
 </body>
 </html>
-
